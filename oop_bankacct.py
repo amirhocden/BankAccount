@@ -12,12 +12,12 @@ class BankAccount:
         self.id = id
         self.balance = bal
         self.card_number = card_number
-        self.cvv2 = cvv2            # عدد سه یا چهار رقمی
-        self.expiry = expiry        # رشته MM/YY
-        self.pin = pin              # رمز کارت (4 یا 6 رقمی)
+        self.cvv2 = cvv2            
+        self.expiry = expiry        
+        self.pin = pin              
         self.transactions = transactions if transactions else []
-        self.username = username    # ?
-        self.password = password    # ?
+        self.username = username    
+        self.password = password    
 
     def add_transaction(self, sign, amount, description):
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -78,10 +78,9 @@ class BankAccount:
                 print("Canceled.")
             return
 
-    # اگر کارت نداشت، کارت جدید صادر می‌کند
+  
         self.issue_new_card(all_accounts)
 
-        # اگر کارت نداشت، کارت جدید صادر می‌کند
         self.issue_new_card(all_accounts)
 
     def update_pin(self):
@@ -118,7 +117,7 @@ class BankAccount:
 
 
 def generate_random_card(existing_cards):
-    bin_code = "627412"  # کد ثابت بانک یا سیستم
+    bin_code = "627412"  
     while True:
         random_part = ''.join(str(random.randint(0, 9)) for _ in range(10))
         card_number = bin_code + random_part
@@ -130,7 +129,7 @@ def generate_cvv2():
 
 def generate_expiry_date():
     today = datetime.today()
-    future_date = today + timedelta(days=365*4)  # 4 سال آینده
+    future_date = today + timedelta(days=365*4)  
     return future_date.strftime("%m/%y")
 
 
